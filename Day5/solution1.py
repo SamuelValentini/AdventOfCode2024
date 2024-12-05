@@ -13,9 +13,6 @@ with open("input.txt") as f:
             l = l.strip().split(",")
             printing.append(l)
 
-print(precedence)
-print(printing)
-
 
 def checkOrder(k, e, p):
     if k in p and e in p:
@@ -40,8 +37,5 @@ def checkPrinting(precedence, p):
 sum = 0
 for p in printing:
     if checkPrinting(precedence, p):
-        print(p)
-        print(len(p) // 2)
-        print(int(p[len(p) // 2]))
         sum += int(p[len(p) // 2])
 print(sum)
