@@ -4,7 +4,7 @@ with open("./input.txt") as f:
 
 start = {x: 1 for x in l}
 
-for i in range(25):
+for i in range(75):
     counter = {}
     for k in start:
         n = start[k]
