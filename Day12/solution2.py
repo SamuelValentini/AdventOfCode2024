@@ -35,7 +35,7 @@ def isOutside(p):
 
 def externalCorner(points, cc, i, j):
     currentCC = cc[i][j]
-    p1, p3 = points
+    p1, p2, p3 = points
 
     return (isOutside(p1) or cc[p1[0]][p1[1]] != currentCC) and (
         isOutside(p3) or cc[p3[0]][p3[1]] != currentCC
