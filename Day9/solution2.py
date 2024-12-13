@@ -49,7 +49,6 @@ del sizes["."]
 currentFile = max([x for x in expandedMap if x != "."])
 
 while currentFile > 0:
-    print(currentFile)
     currentFileSize = sizes[currentFile]
     currentFileStart = expandedMap.index(currentFile)
     for index in sorted(freeBlock):
