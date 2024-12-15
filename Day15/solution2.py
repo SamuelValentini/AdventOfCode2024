@@ -70,7 +70,6 @@ def isMovableHorizontal(warehouse, rx, ry, direction):
 
 
 def isMovableVertically(warehouse, rx, ry, direction):
-    print(warehouse[rx][ry])
     if warehouse[rx + direction][ry] == "#":
         return False
     elif warehouse[rx + direction][ry] == ".":
@@ -81,7 +80,7 @@ def isMovableVertically(warehouse, rx, ry, direction):
         ) and isMovableVertically(warehouse, rx + direction, ry + 1, direction)
     elif warehouse[rx + direction][ry] == "]":
         return isMovableVertically(
-            warehouse, rx, ry + direction, direction
+            warehouse, rx + direction, ry, direction
         ) and isMovableVertically(warehouse, rx + direction, ry - 1, direction)
 
 
@@ -95,7 +94,7 @@ def printStatus(move, warehouse):
     print()
 
 
-with open("./test1.txt") as f:
+with open("./input.txt") as f:
     for l in f:
         if l == "\n":
             isInstruction = True
@@ -126,9 +125,9 @@ def parseInstr():
 
 
 printStatus("", warehouse)
-# for i, instr in enumerate(instructions):
-while 1:
-    instr = parseInstr()
+for i, instr in enumerate(instructions):
+    # while 1:
+    # instr = parseInstr()
     if instr == ">":
         if isMovableHorizontal(warehouse, rx, ry, 1):
             moveH(warehouse, rx, ry, 1)
@@ -137,14 +136,12 @@ while 1:
             moveH(warehouse, rx, ry, -1)
     if instr == "^":
         if isMovableVertically(warehouse, rx, ry, -1):
-            print("isMovableVertically")
             moveV(warehouse, rx, ry, -1)
     if instr == "v":
         if isMovableVertically(warehouse, rx, ry, 1):
-            print("isMovableVertically")
             moveV(warehouse, rx, ry, 1)
     rx, ry = getRobotPosition(warehouse)
-    printStatus(instr, warehouse)
+    # printStatus(instr, warehouse)
 
 
 coordinates = 0
